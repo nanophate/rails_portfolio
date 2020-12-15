@@ -1,0 +1,24 @@
+<%= render partial: 'header' %>
+<div class="d-flex align-items-center mt-4 mb-4">
+    <div class="ml-auto boards__linkBox">
+        <%= link_to '一覧', engapps_path, class: 'btn btn-outline-dark' %>
+        <%= link_to '編集', edit_engapp_path, class: 'btn btn-outline-dark' %>
+    </div>
+</div>
+
+<% if flash[:success] %>
+<div class="alert alert-primary flash" role="alert">
+    <%= flash[:success] %>
+</div>
+<% end %>
+
+<div class="card">
+    <div class="card-header">
+        <h4><%= @engapp.title %></h4>
+    </div>
+    <div class="card-body">
+        <p class="card-text"><%= simple_format(@engapp.body) %></p>
+        <p class="text-right font-weight-bold mr-10"><%= @engapp.author %></p>
+    </div>
+</div>
+<%= render partial: 'comment_form', locals: { comment:@comment } %>

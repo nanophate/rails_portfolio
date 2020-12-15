@@ -1,0 +1,2 @@
+class EngApp < ApplicationRecord
+end
